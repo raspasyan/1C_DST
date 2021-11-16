@@ -1,0 +1,17 @@
+/* Вкладки */
+details {
+    margin-left: 16px;
+}
+details:first-child {
+    margin-left: 0;
+}
+summary {
+    font-size: 20px;
+    font-weight: normal;
+    padding: 16px;
+}
+details>div {
+    margin-left: 16px;
+    padding: 8px;
+}
+/* Вкладки */  

@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+
+    <!-- Basic Page Needs
+    –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+    <meta charset="utf-8">
+    <title>Кеги</title>
+    <meta name="description" content="Инструменты для работы с кегами">
+    <meta name="author" content="Пожидаев Петр, rammfan@bk.ru">
+    <meta name="copyright" lang="ru" content="Розничная сеть алкомаркетов 'Столица'" />
+
+    <!-- Mobile Specific Metas
+    –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- FONT
+    –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+    <!-- <link href="//fonts.googleapis.com/css?family=Raleway:400,300,600" rel="stylesheet" type="text/css"> -->
+
+    <!-- CSS
+    –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+    <link rel="stylesheet" href="src/css/normalize.css">
+    <link rel="stylesheet" href="src/css/skeleton.css">
+    <link rel="stylesheet" href="src/css/common.css">
+    <link href="src/css/datepicker.min.css" rel="stylesheet" type="text/css">    
+
+    <!-- Favicon
+    –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+    <link rel="icon" type="image/png" href="src/images/logo.png">
+    <link rel="apple-touch-icon" href="src/images/logo.png">
+
+    <!-- Web Application -->
+    <meta name="application-name" content="Кеги">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="theme-color" content="#9CC2CE">
+    <meta name="apple-mobile-web-app-status-bar-style" content="red">
+
+    <!-- JS -->
+    <script src="src/js/common.js"></script>
+    <script src="src/js/kegs.js"></script>
+    <script src="src/js/jquery.min.js"></script>
+    <script src="src/js/datepicker.min.js"></script>    
+
+  </head>
+  <body>
+
+    <!-- Primary Page Layout
+    –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+    <div class="container">
+      <!-- Основная секция -->
+      <div style="text-align: center; margin: 8px;" class="row">
+          <!-- Результат операции -->
+          <p id="barcodeInputTip" class="tip"></p>
+          <!-- Свойства кеги -->
+          <div id="properties" style="display: none;">
+            <details>
+              <summary>Дата розлива:</summary>
+              <div id="bottlingDates" class="u-full-width" style="display: none;">
+                <button class="u-full-width" bottlingDate="2019-10-19">2019-10-19</button>
+              </div>
+              <div id="customBottlingDate" class="u-full-width datepicker-here" style="display: none;"></div>
+            </details>
+            <div>Емкость:</div>
+            <input id="capacity" type="number" class="u-full-width">
+          </div>
+          <!-- Свойства крана -->
+          <div id="craneProperties" style="display: none;">
+            <div>Номер крана:</div>
+            <input id="craneNumber" type="number" class="u-full-width">
+          </div>
+          <!-- Кнопки -->
+          <div id="buttons" style="display: none;">
+            <div id="disconnectionReasonCont" style="display: none;">
+              <label for="disconnectionReason">Причина отключения:</label>
+              <select id="disconnectionReason" class="u-full-width">
+                <option selected value="change">Замена</option>
+                <option value="waste">Брак/Бой</option>
+              </select>
+            </div>
+            
+            <button id="buttonOk" class="u-full-width primary"></button>
+            <button id="buttonCancel" class="u-full-width"></button>
+            <button id="buttonDelete" class="alternative u-full-width" style="display: none">Отменить приемку</button>
+          </div>
+          <!-- Ввод штрихкода кеги -->
+          <input id="barcodeInput" class="u-full-width img img-search img-medium" type="text">
+      </div>
+    </div>
+    
+    <!-- Контейнер модального окна -->
+    <div id="modalContainer" class="modal-container" style="display: none">
+      <div class="modal-content">
+        <p id="modalText" class="tip"></p>
+        <div id="modalButtons" style="display: none;">
+          <button id="modalButtonOk" style="height: 64px; font-size: 18px" class="u-full-width">Подтвердить</button>
+          <button id="modalButtonCancel" class="u-full-width">Отмена</button>
+        </div>
+      </div>
+    </div>
+
+  <!-- End Document
+    –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  </body>
+</html>

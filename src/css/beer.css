@@ -1,0 +1,105 @@
+/* Список пивной номенклатуры */
+.beers {
+    margin-bottom: 80px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+.beer {
+    margin: 8px;
+    padding: 8px;
+    width: 160px;
+    height: 160px;
+    color: black;
+    background-color: #eaeaea;
+    border-radius: 16px;
+    text-align: center;
+    text-shadow: 0px 1px 0px white;
+    box-shadow: 0px 1px 1px grey;
+    cursor: pointer;
+    overflow: hidden;
+    display: flex;
+}
+.beer:hover {
+    filter: sepia(20%);
+    filter: grayscale(0%);
+}
+.beer-description {
+    margin: auto;
+    width: 64px;
+    height: 64px;
+    font-size: 38px;
+    background-color: rgba(255,255,255,0.9);
+    border-radius: 32px;
+    max-height: 128px;
+}
+/* Список пивной номенклатуры */
+
+/* Подвал и пагинация */
+.footer {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    height: 64px;
+    width: 100%;
+    background-color: gainsboro;
+    color: #333333;
+    text-align: center;
+    border-top: 1px solid white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+.page {
+    width: 64px;
+    height: 64px;
+    margin: auto;
+    font-size: 32px;
+    text-shadow: 0px 1px 0px white;
+}
+/* Подвал и пагинация */
+
+/* Модальное окно и его контент */
+.modal-container {
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    background: rgba(0,0,0,.9);
+    width: 100%;
+    height: 100%;
+}
+.modal-content {
+    margin: 20% 10%; 
+    text-align: center; 
+    color: white; 
+    font-size: 20px;
+}
+.beer-weight-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;    
+}
+.beer-weight {
+    margin: auto;
+    width: 128px;
+    height: 128px;
+    border-radius: 50%;
+    background-color: black;
+}
+/* Модальное окно и его контент */
+
+/* Предупреждение */
+.beer-warning {
+    animation-name: warning;
+    animation-duration: 5s;
+    animation-iteration-count: infinite;
+}
+@keyframes warning {
+    0%   {color:red;}
+    33%  {color:rgb(255, 7, 143);}
+    66%  {color:rgb(182, 55, 255);}
+    100%   {color:red;}
+}

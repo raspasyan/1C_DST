@@ -1,0 +1,275 @@
+@font-face {
+    font-family: "Exo2-Regular";  
+    src: url("../fonts/exo2-regular.otf") format("truetype"); 
+    font-style: normal; 
+    font-weight: normal;
+}
+
+button:disabled {
+    filter: grayscale(1);
+}
+
+body {
+    /* font-family: 'Roboto Condensed', sans-serif; */
+    font-family: 'Exo2-Regular';
+    color: #7b43ff;
+}
+a {
+    color: #7b43ff;    
+}
+
+/* Кнопки */
+button {
+    height: 48px;
+    border: 2px solid #7b43ff;
+    background-color: transparent;
+    font-size: 20px;
+    color: #7b43ff;
+    font-weight: normal;
+}
+button.alternative {
+    border: 2px solid #E91E63;
+    color: #E91E63;
+}
+button.primary {
+    color: white;
+    background: linear-gradient(135deg,#2966ff, #bf25ff);
+    border: none;
+}
+/* Кнопки */
+
+/* Уведомления */
+.tip {
+    padding-left: 8px;
+    border-left: 3px solid #7b43ff;
+}
+/* Уведомления */
+
+/* Сканирование штрихкода */
+input[type="number"],input[type="date"] {
+    padding: 16px;
+    height: 48px;
+    border: 2px solid #7b43ff;
+    border-radius: 4px; 
+    background: transparent;
+    color: #7b43ff;  
+}
+input[type="number"]:focus,input[type="date"]:focus {
+    border: 2px solid #7b43ff;
+}
+
+#barcodeInput {
+    width: 64px;
+    height: 64px;
+    border: 2px solid transparent;
+    color: transparent;
+    background-color: transparent;
+    transition: all .3s ease-out;
+    /* caret-color: transparent; */
+}
+#barcodeInput:focus {
+    width: 192px;
+    border: 2px solid #7b43ff;
+    background: transparent;
+    color: #7b43ff;
+    /* animation: highlight .8s ease-out; */
+}
+    
+/* @keyframes highlight {
+    0% { background: #7b43ff }
+    100% { background: transparent }
+} */
+/* Сканирование штрихкода */
+
+/* Статусные сообщения */
+.info, .success, .warning, .error {
+    font-family:Arial, Helvetica, sans-serif; 
+    font-size:13px;
+    border: 1px solid;
+    margin: 10px 0px;
+    padding:15px 10px;
+}
+.info {
+    color: #00529B;
+    background-color: #BDE5F8;
+}
+.success {
+    color: #4F8A10;
+    background-color: #DFF2BF;
+}
+.warning {
+    color: #9F6000;
+    background-color: #FEEFB3;
+}
+.error {
+    color: #D8000C;
+    background-color: #FFBABA;
+}
+/* Статусные сообщения */
+
+/* Изображения, работа с изображениями */
+.img {
+    display: inline-block;
+    width: 64px;
+    height: 64px;
+    vertical-align: middle;
+}
+.img-search {
+    background: url("../images/search.png") 50% no-repeat;
+}
+.img-beer {
+    background: url("../images/beer.png") 50% no-repeat;
+}
+.img-load {
+    background: url("../images/load.gif") 50% no-repeat;
+}
+.img-small {
+    width: 32px;
+    height: 32px;
+    background-size: 32px;
+}
+.img-medium {
+    width: 64px;
+    height: 64px;
+    background-size: 64px;
+}
+.img-big {
+    width: 128px;
+    height: 128px;
+    background-size: 128px;
+}
+/* Изображения, работа с изображениями */
+
+/* Модальное окно и его контент */
+.modal-container {
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    background: white;
+    width: 100%;
+    height: 100%;
+}
+.modal-content {
+    margin: 20% 10%; 
+    text-align: center; 
+}
+/* Модальное окно и его контент */
+
+/* Чек-боксы */
+/* для элемента input c type="checkbox" */
+.custom-checkbox {
+    position: absolute;
+    z-index: -1;
+    opacity: 0;
+}
+/* для элемента label, связанного с .custom-checkbox */
+.custom-checkbox+label {
+    display: inline-flex;
+    align-items: center;
+    user-select: none;
+}
+/* создание в label псевдоэлемента before со следующими стилями */
+.custom-checkbox+label::before {
+    content: '';
+    display: inline-block;
+    width: 32px;
+    height: 32px;
+    flex-shrink: 0;
+    flex-grow: 0;
+    border: 1px solid #adb5bd;
+    border-radius: 0.25em;
+    margin-right: 0.5em;
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: 50% 50%;
+    cursor: pointer;
+}
+/* стили при наведении курсора на checkbox */
+.custom-checkbox:not(:disabled):not(:checked)+label:hover::before {
+    /* border-color: #b3d7ff; */
+}
+/* стили для активного чекбокса (при нажатии на него) */
+.custom-checkbox:not(:disabled):active+label::before {
+    /* background-color: #b3d7ff;
+    border-color: #b3d7ff; */
+}
+/* стили для чекбокса, находящегося в фокусе */
+.custom-checkbox:focus+label::before {
+    /* box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25); */
+}
+/* стили для чекбокса, находящегося в фокусе и не находящегося в состоянии checked */
+.custom-checkbox:focus:not(:checked)+label::before {
+    /* border-color: #80bdff; */
+}
+/* стили для чекбокса, находящегося в состоянии checked */
+.custom-checkbox:checked+label::before {
+    border-color: #7b43ff;
+    background-color: #7b43ff;
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 8 8'%3e%3cpath fill='%23fff' d='M6.564.75l-3.59 3.612-1.538-1.55L0 4.26 2.974 7.25 8 2.193z'/%3e%3c/svg%3e");
+}
+/* стили для чекбокса, находящегося в состоянии disabled */
+.custom-checkbox:disabled+label::before {
+    background-color: #e9ecef;
+}
+.checkbox {
+    margin-bottom: 1em;
+}
+/* Чек-боксы */
+
+/* Анимация загрузки */
+.lds-ellipsis {
+    display: inline-block;
+    position: relative;
+    width: 80px;
+    height: 80px;
+}
+.lds-ellipsis div {
+    position: absolute;
+    top: 33px;
+    width: 13px;
+    height: 13px;
+    border-radius: 50%;
+    background: #7b43ff;
+    animation-timing-function: cubic-bezier(0, 1, 1, 0);
+}
+.lds-ellipsis div:nth-child(1) {
+    left: 8px;
+    animation: lds-ellipsis1 0.6s infinite;
+}
+.lds-ellipsis div:nth-child(2) {
+    left: 8px;
+    animation: lds-ellipsis2 0.6s infinite;
+}
+.lds-ellipsis div:nth-child(3) {
+    left: 32px;
+    animation: lds-ellipsis2 0.6s infinite;
+}
+.lds-ellipsis div:nth-child(4) {
+    left: 56px;
+    animation: lds-ellipsis3 0.6s infinite;
+}
+@keyframes lds-ellipsis1 {
+    0% {
+        transform: scale(0);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+@keyframes lds-ellipsis3 {
+    0% {
+        transform: scale(1);
+    }
+    100% {
+        transform: scale(0);
+    }
+}
+@keyframes lds-ellipsis2 {
+    0% {
+        transform: translate(0, 0);
+    }
+    100% {
+        transform: translate(24px, 0);
+    }
+}
+/* Анимация загрузки */

@@ -1,0 +1,20 @@
+.container {
+    text-align: center;
+}
+#productTitle {
+    font-size: 18px;
+}
+#productTitle.warning {
+    color: #ffffff;
+    background: linear-gradient(135deg,#2966ff, #bf25ff);
+    border-radius: 4px;
+}
+#productQtyValue {
+    font-size: 24px;
+    font-weight: bold;
+}
+.productPriceValue {
+    font-size: 24px;
+    font-weight: bold;
+    color: red;
+}

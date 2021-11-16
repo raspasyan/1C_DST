@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+  <!-- Basic Page Needs
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  <meta charset="utf-8">
+  <title>Разливное пиво</title>
+  <meta name="description" content="">
+  <meta name="author" content="rammfan@bk.ru">
+
+  <!-- Mobile Specific Metas
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- FONT
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  <!-- <link href="//fonts.googleapis.com/css?family=Raleway:400,300,600" rel="stylesheet" type="text/css"> -->
+
+  <!-- CSS
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  <link rel="stylesheet" href="src/css/normalize.css">
+  <link rel="stylesheet" href="src/css/skeleton.css">
+  <link rel="stylesheet" href="src/css/common.css">
+  <link rel="stylesheet" href="src/css/beer.css">
+
+  <!-- Favicon
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  <link rel="icon" type="image/png" href="src/images/logo.png">
+
+  <!-- Manifest -->
+  <!-- <link rel="manifest" href="src/manifest/manifest.json"> -->
+  <meta name="application-name" content="Разливное пиво">
+  <meta name="mobile-web-app-capable" content="yes">
+  <link rel="shortcut icon" sizes="196x196" href="src/images/logo.png">
+
+  <!-- JS -->
+  <script src="src/js/beer.js"></script>
+
+</head>
+<body>
+
+  <!-- Primary Page Layout
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  <div id="beers" class="row beers">
+    <!-- <div class="beer img-big img-beer">
+      <span class="beer-description">"Жигулевское барное" амбарное</span>
+    </div> -->
+  </div>
+
+  <div id="footer" class="footer" style="display: none;">
+    <!-- <div class="page">1</div> -->
+  </div>
+
+   <!-- Контейнер модального окна -->
+   <div id="modalContainer" class="modal-container" style="display: none">
+    <div class="modal-content">
+      <div id="modalBeerWeightContainer" style="display: none">
+        <h4 id="modalBeerWeightInfo">Номенклатура</h4>
+        <p>Выберите объём тары:</p> 
+        <div class="beer-weight-container">
+          <div class="beer-weight" value="0.5">
+            <span class="img img-medium img-beer"></span>
+            <p>0.5 л</p> 
+          </div>
+          <div class="beer-weight" value="1.0">
+            <span class="img img-medium img-beer" style="position: relative; left: -8px;"></span>
+            <span class="img img-medium img-beer" style="position: relative; left: 8px; top: -64px;"></span>
+            <p style="position: relative; top: -64px">1.0 л</p> 
+          </div>
+          <div class="beer-weight" value="1.5">
+            <span class="img img-medium img-beer" style="position: relative; left: -16px;"></span>
+            <span class="img img-medium img-beer" style="position: relative; left: 0; top: -64px;"></span>
+            <span class="img img-medium img-beer" style="position: relative; left: 16px; top: -128px;"></span>
+            <p style="position: relative; top: -128px">1.5 л</p> 
+          </div>
+        </div>
+        <p id="modalNotInStock" class="beer-warning" style="display: none">Внимание! Необходимо переключить кегу!</p>
+        <p>Остаток в кране: <span id="modalBeerWeightQty">9999</span> л.</p>
+        <p>Дополнительно в закрытых кегах: <span id="modalBeerWeightTotalQty">9999</span> л.</p>
+      </div>
+      <div id="modalInfoContainer" style="display: none">
+        <p><span class="img img-medium img-load" id="modalImage"></span></p>
+        <p id="modalInfo">Описание</p>
+      </div>
+    </div>
+  </div>
+
+<!-- End Document
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+</body>
+</html>

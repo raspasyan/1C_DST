@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+  <!-- Basic Page Needs
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  <meta charset="utf-8">
+  <title>Инвентаризация</title>
+  <meta name="description" content="Инвентаризация продукции в торговом зале">
+  <meta name="author" content="rammfan@bk.ru">
+
+  <!-- Mobile Specific Metas
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- FONT
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  <!-- <link href="//fonts.googleapis.com/css?family=Raleway:400,300,600" rel="stylesheet" type="text/css"> -->
+
+  <!-- CSS
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  <link rel="stylesheet" href="src/css/normalize.css">
+  <link rel="stylesheet" href="src/css/skeleton.css">
+  <link rel="stylesheet" href="src/css/common.css">
+
+  <!-- Favicon
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  <link rel="icon" type="image/png" href="src/images/logo.png">
+  <link rel="apple-touch-icon" href="src/images/logo.png">
+
+  <!-- Web Application -->
+  <meta name="application-name" content="Инвентаризация">
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="theme-color" content="#9CC2CE">
+  <meta name="apple-mobile-web-app-status-bar-style" content="red">
+
+  <!-- JS -->
+  <script src="src/js/common.js"></script>
+  <script src="src/js/inventory.js"></script>
+
+</head>
+<body>
+
+  <!-- Primary Page Layout
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  <div class="container">
+    <!-- Окно отсутствия инвентаризации -->
+    <div id="inventoryIsNotStarted" style="text-align: center; display: none;" class="row">
+      <h4>Инвентаризация ещё не начата</h4>
+      <p><span class="img img-delete img-medium"></span></p>
+      <p>Для начала инвентаризации необходимо создать новый документ <strong>Инвентаризация</strong> в ИБ 1С Розница.</p>
+      <p></p>
+    </div>
+    <!-- Окно инвентаризации -->
+    <div id="inventoryIsStarted" style="text-align: center;" class="row">
+      <h4 id="inventoryHeader">Инвентаризация №<span id="inventoryId">#</span></h4>
+      <div id="outputStatus" style="display: none;">
+        <p style="margin: 8px 0;">
+          <span id="outputStatusText">#</span>
+        </p>
+      </div>
+      <!-- Свойства штрихкода -->
+      <div id="barcodeProperties" style="display: none;" class="row">
+        <div class="u-full-width">
+          <span><strong id="currentQty">#</strong> (<strong id="qty">#</strong>)</span>
+          <input id="qtyInput" type="number" style="text-align: center; width: 64px;" value="1">
+        </div>
+        <button id="saveQty" class="u-full-width primary">Сохранить</button>
+        <button id="restartQty" class="u-full-width">Сброс</button>
+      </div>
+      <!-- Свойства алкогольной марки -->
+      <div id="exciseProperties" style="display: none;" class="row">
+        <div class="u-full-width">
+          <div id="exciseQty"><strong id="currentQtyExcise">#</strong> (<strong id="maxQtyExcise">#</strong>)</div>
+          <p><strong id="exciseTitle">#</strong></p>
+        </div>
+      </div>
+      <!-- Кнопка отмены -->
+      <button id="removeExcise" style="display: none;" class="u-full-width">Отменить</button>
+      <!-- Ввод штрихкода -->
+      <input id="barcodeInput" class="u-full-width img img-search img-medium" type="text">
+      <div>
+        <button id="sendBarcode" style="display: none;" class="primary">Отправить</button>
+      </div>
+      <div class="checkbox">
+        <input class="custom-checkbox" type="checkbox" id="forceBarcode" name="forceBarcode" value="green">
+        <label for="forceBarcode">Уточнить номенклатуру</label>
+      </div>
+      <div class="checkbox">
+          <input class="custom-checkbox" type="checkbox" id="forceExcise" name="forceExcise" value="green">
+          <label for="forceExcise">Фиксировать все марки</label>
+        </div>      
+    </div>
+  </div>
+
+  <!-- Контейнер модального окна -->
+  <div id="modalContainer" class="modal-container" style="display: none">
+    <div class="modal-content">
+      <p id="modalText">#</p>
+      <div id="modalButtons" style="display: none;">
+        <button id="modalButtonOk" class="u-full-width primary">Подтвердить</button>
+        <button id="modalButtonCancel" class="u-full-width">Отмена</button>
+      </div>
+    </div>
+  </div>
+
+<!-- End Document
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+</body>
+</html>

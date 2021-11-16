@@ -1,0 +1,108 @@
+.block {
+    text-align: center;
+    padding: 8px;
+}
+#input-block {
+    position: sticky;
+    top: 0;
+}
+#input-block-input-element {
+    width: 100%;
+    max-width: 640px;
+    height: 64px;
+}
+#view-block {
+    text-align: center;
+    max-width: 640px;
+    margin: auto;
+}
+#view-block-table {
+}
+#loader-block{
+}
+#output-block-description {
+    border-left: 3px solid blueviolet;
+}
+.img {
+    display: inline-block;
+    width: 48px;
+    height: 48px;
+    vertical-align: middle;
+}
+.img-print {
+    background: url("../images/print.png") 50% no-repeat;
+}
+.img-shelf {
+    background: url("../images/shelf.png") 50% no-repeat;
+}
+.img-expand {
+    background: url("../images/expand.png") 50% no-repeat;
+}
+.img-collapse {
+    background: url("../images/collapse.png") 50% no-repeat;
+}
+.img-small {
+    width: 24px;
+    height: 24px;
+    background-size: 24px;
+}
+.img-medium {
+    width: 48px;
+    height: 48px;
+    background-size: 48px;
+}
+
+.list {
+    border: 1px solid;
+    border-radius: 8px;
+    margin-bottom: 8px;
+}
+.list-header {
+    display: grid;
+    grid-template-columns: 5fr 1fr;
+    padding: 16px;
+    align-items: center;
+    justify-items: center;
+}
+details[open] > summary {
+    border-bottom: 1px solid;
+}
+details > summary > .list-header-icon {
+    background: url("../images/expand.png") 50% no-repeat;
+    background-size: 32px;
+}
+details[open] > summary > .list-header-icon {
+    background: url("../images/collapse.png") 50% no-repeat;
+    background-size: 32px;
+}
+.list-header-title {
+    justify-self: left;
+    font-size: 2rem;
+}
+.list-header-icon {
+    width: 32px;
+    height: 32px;
+    background-size: 32px;
+}
+.list-items {
+    margin-bottom: 0;   
+}
+.list-items > li {
+    display: grid;
+    grid-template-columns: 1fr 5fr;
+    padding: 8px;
+    margin-bottom: 0;
+    border-bottom: 1px dotted;
+}
+.list-items > li:last-child {
+    border-bottom: none;  
+}
+.list-item-icon {
+    align-self: center;
+    justify-self: left;
+}
+.list-item-title {
+    align-self: center;
+    justify-self: left;
+    text-align: left;
+}

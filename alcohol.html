@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Basic Page Needs
+    –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+    <meta charset="utf-8">
+    <title>РСА</title>
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <!-- Mobile Specific Metas
+    –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- iOs -->
+    <meta name="apple-mobile-web-app-title" content="Прием продукции">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <link rel="apple-touch-icon" href="src/images/logo.png">
+    <link rel="apple-touch-startup-image" href="src/images/logo.png">
+    
+    <!-- Android -->
+    <meta name="application-name" content="Прием продукции">
+    <meta name="mobile-web-app-capable" content="yes">
+    <link rel="shortcut icon" sizes="196x196" href="src/images/logo.png">
+
+    <!-- FONT
+    –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+    <!-- <link href="https://fonts.googleapis.com/css?family=Roboto+Condensed" rel="stylesheet"> -->
+
+    <!-- CSS
+    –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+    <link rel="stylesheet" href="src/css/normalize.css">
+    <link rel="stylesheet" href="src/css/skeleton.css">
+    <link rel="stylesheet" href="src/css/alcohol.css">
+    <link href="src/css/datepicker.min.css" rel="stylesheet" type="text/css">
+
+    <!-- Favicon
+    –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+    <link rel="icon" type="image/png" href="src/images/logo.png">
+
+  </head>
+  <body>
+    <!-- Меню -->
+    <div id="mySidenav" class="sidenav">
+      <a href="javascript:void(0)" id="menuClose" class="closebtn">&times;</a>
+      <a href="#" class="tablink" tabId="input">Прием АП</a>
+      <a href="#" class="tablink" tabId="remove">Отмена АМ</a>
+      <a href="index" class="tablink" tabId="index">Сервисы</a>
+    </div>
+
+    <!-- Меню для мобилки-->
+    <div style="position: fixed; width: 100%; z-index: 1;" class="tab">
+      <span style="float: left; padding: 6px;" id="menuTitle">Лейбл</span>
+      <button style="float: right;" id="menuOpen">Меню</button>
+    </div>
+    <!-- Плейсхолдер под фиксированное меню -->
+    <div class="menuPlaceholder"></div>
+    
+    <!-- Главный контейнер -->
+    <div class="container">
+      <!-- Прием алкогольной продукции -->
+      <div id="input" class="tabcontent">
+        <!-- Результат сканирования -->
+        <div class="row" id="alcocodeInputStatus">
+          <p style="text-align: center;">
+            <span id="output"></span>
+            <span id="outputImage" class="img img-warning"></span>
+          </p>
+        </div>
+
+        <!-- Контейнер ввода алкогольных марок -->
+        <div class="row" id="alcocodeInputContainer">
+          <input class="u-full-width" type="text" placeholder="Алкогольная марка" id="alcocodeInput">
+          <input style="display: none" class="u-full-width" type="text" placeholder="Штрихкод номенклатуры" id="barcodeInput">
+        </div>
+
+        <!-- Контейнер выбора даты розлива -->
+        <div class="row" id="alcocodeDateButtons" style="margin-bottom: 48px;">
+          <input id="alcocodeDateInput" class="u-full-width datepicker-here" style="text-align: center" type="text" placeholder="Выбрать дату вручную">
+          <input id="alcocodeDate" class="u-full-width" style="text-align: center; font-weight: bold; font-size: 1.8rem;" type="text" disabled>
+          <input id="alcocodeDateButtonOk" class="u-full-width button-primary" style="font-size: 1.8rem; height: 7rem;" type="button" value="ПОДТВЕРДИТЬ">
+        </div>
+
+        <!-- Общая информация о ходе приема ТТН -->
+        <div id="commonStatus" class="row"></div>
+      </div>
+
+      <!-- Отмена сканирования -->
+      <div id="remove" class="tabcontent">
+        <!-- Результат сканирования -->
+        <div class="row" id="alcocodeRemoveStatus">
+            <p style="text-align: center;">
+              <span id="alcocodeRemoveStatusText"></span>
+              <span id="alcocodeRemoveStatusImage" class="img img-warning"></span>
+            </p>
+          </div>
+          <!-- Контейнер ввода алкогольных марок -->
+          <div class="row">
+            <input class="u-full-width" type="text" placeholder="Алкогольная марка" id="alcocodeRemoveInput">
+          </div>
+      </div>
+
+      <!-- Подвал -->
+      <div id="footer" class="alcocode-date-footer">
+        <input id="footerCancelButton" class="small-button" style="float:left; margin: 8px;" type="button" value="Назад">
+        <input id="footerToRemoveButton" class="small-button" style="float:right; margin: 8px;" type="button" value="Отменить АМ" onclick="openTab('remove')">
+        <input id="footerToInputButton" class="small-button" style="float:right; margin: 8px;" type="button" value="Прием АП" onclick="openTab('input')">
+      </div>
+    </div>
+
+    <!-- Контейнер модального окна -->
+    <div id="modalContainer" class="modal-container" style="display: none">
+      <div class="modal-content">
+        <p><span class="img img-medium img-process" id="modalImage"></span></p>
+        <p id="modalInfo">Загрузка..</p>
+        <input id="modalButton" class="u-full-width" style="background-color: white" type="button" value="Ок">
+      </div>
+    </div>
+
+    <!-- JS -->
+    <script src="src/js/jquery.min.js"></script>
+    <script src="src/js/datepicker.min.js"></script>
+    <script src="src/js/alcohol.js"></script>
+  </body>
+</html>
