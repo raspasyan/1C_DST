@@ -68,16 +68,13 @@ function drawCheckBarcode(result) {
 }
 
 function drawControlTable(result) {
-    // animate({
-    //     duration: 500,
-    //     timing: function(timeFraction) {
-    //         return timeFraction;
-    //     },
-    //     draw: function(progress, options) {
-    //         document.getElementById("view-block-loader").style.opacity = 1 - progress;
-    //     }
-    // });
     document.getElementById("loader-block").style.display = "none";
+
+    let openElements = [];
+    if (document.getElementById("view-block").children.length) {
+        let elements = (document.getElementById("view-block").getElementsByClassName("list"));
+        for (let index = 0; index < elements.length; index++) if (elements[index].open) openElements.push(elements[index].getAttribute('code'));
+    }
 
     if (result.status) {
         while (document.getElementById("view-block").children.length) document.getElementById("view-block").removeChild(document.getElementById("view-block").children[0]);
@@ -87,6 +84,8 @@ function drawControlTable(result) {
         result.data.forEach(dataRow => {
             if (dataRow.parent != currentParent) {
                 currentDetailsEl = document.createElement("details");
+                currentDetailsEl.setAttribute("code", dataRow.code);
+                currentDetailsEl.open = openElements.indexOf(dataRow.code) != -1;
                 currentDetailsEl.classList.add("list");
 
                 let summaryElement = document.createElement("summary");
