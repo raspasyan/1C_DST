@@ -96,7 +96,7 @@ async function getQty(barcode) {
             productQty.style.display = "";
             productPrice.style.display = "";
 
-            productQtyValue.innerText = answer.data.qty;
+            productQtyValue.innerText = answer.data.qty.join(" + ");
             productPriceValue.innerText = answer.data.price + " ₽";
             productCompetitorPriceValue.innerText = answer.data.competitorPrice + " ₽";
         } else {
