@@ -13,8 +13,10 @@
     font-size: 24px;
     font-weight: bold;
 }
-.productPriceValue {
+.productPrice {
     font-size: 24px;
     font-weight: bold;
-    color: red;
+}
+.productPriceDiscount {
+    color: #e91e63;
 }

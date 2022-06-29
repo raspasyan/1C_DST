@@ -99,6 +99,8 @@ async function getQty(barcode) {
             productQtyValue.innerText = answer.data.qty;
             productPriceValue.innerText = answer.data.price + " ₽";
             productCompetitorPriceValue.innerText = answer.data.competitorPrice + " ₽";
+            productDiscountSource.innerText = answer.data.discountSource;
+            if (answer.data.discountSource === "Мониторинг") productDiscountSource.classList.add("productPriceDiscount");
         } else {
             productQty.style.display = "none";
             productPrice.style.display = "none";
@@ -106,6 +108,8 @@ async function getQty(barcode) {
             productQtyValue.innerText = 0;
             productPriceValue.innerText = "";
             productCompetitorPriceValue.innerText = "";
+            productDiscountSource.innerText = "";
+            productDiscountSource.classList.remove("productPriceDiscount");
         }
         
         animate({
